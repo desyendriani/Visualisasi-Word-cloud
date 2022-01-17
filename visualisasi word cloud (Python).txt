@@ -1,0 +1,31 @@
+import pandas as pd
+dataa=pd.read_excel('PPKM cleaning.xlsx')
+dataa
+!pip install wordcloud
+from wordcloud import WordCloud
+import matplotlib.pyplot as plt
+dataa.head()
+data=str(dataa)
+import re
+# Plotting the wordcloud
+%matplotlib inline
+import matplotlib.pyplot as plt
+ 
+from wordcloud import WordCloud, STOPWORDS
+ 
+# Creating a custom list of stopwords
+customStopwords=list(STOPWORDS)
+ 
+wordcloudimage = WordCloud( max_words=50,
+                            font_step=2 ,
+                            max_font_size=500,
+                            stopwords=customStopwords,
+                            background_color='black',
+                            width=1000,
+                            height=720
+                          ).generate(data2)
+ 
+plt.figure(figsize=(20,8))
+plt.imshow(wordcloudimage)
+plt.axis("off")
+plt.show()
